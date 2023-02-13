@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiz App</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-image: url(https://www.komar.de/en/media/catalog/product/cache/5/image/9df78eab33525d08d6e5fb8d27136e95/4/-/4-050_worldmap_neu_ma_1.jpg);
+                background-size: cover;
+                background-repeat: no-repeat;
+                text-align:center;
+                padding: 50px;
+            }
+            h1 {
+                font-size: 36px;
+                color: #333;
+                margin-bottom: 40px;
+            }
+            form {
+                width: 600px;
+                margin: 0 auto;
+                text-align: left;
+            }
+            label {
+                font-size: 20px;
+                margin-right: 20px;
+            }
+            input[type="radio"] {
+                margin-right: 10px;
+            }
+            input[type="submit"] {
+                font-size: 20px;
+                padding: 10px 20px;
+                background-color: #333;
+                color:#FFF;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top: 40px;
+            }
+            #result {
+                font-size: 24px;
+                color:#333;
+                margin-top: 40px;
+            }
+            input[type="reset"] {
+                font-size: 20px;
+                padding: 10px 20px;
+                background-color: #333;
+                color: #FFF;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top: 20px;
+            }   
+            fieldset {
+                background-color: #ffffff;
+                border: 1px solid #333;
+                border-radius: 5px;
+                padding: 20px;
+                box-shadow: 2px 2px 10px #333;
+                margin-bottom: 40px;
+                display: flex;
+            }
+            img {
+                width: 200px;
+                height: 100px;
+                margin-right: 50;
+                display: flex;
+                border-radius: 5%;
+            }
+        </style>
+        
+
+        
+    </head>
+    <body>
+        <h1> TEST YOUR GEOGRAPHIC KNOWLEDGE</h1>
+        <form>
+            <fieldset>
+                <legend>Question 1</legend>
+                    What is the capital of Tunisia?<br>
+                    <label><input type="radio" name="question1"> Sousse</label><br>
+                    <label><input type="radio" name="question1" id="correct1"> Tunis</label><br>
+                    <label><input type="radio" name="question1"> Milan</label><br>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/1200px-Flag_of_Tunisia.svg.png" alt="Question Image">
+            </fieldset>
+            <fieldset>
+                <legend>Question 2</legend>
+                What is the capital of Switzerland?<br>
+                <label><input type="radio" name="question2" id="correct2"> Bern</label><br>
+                <label><input type="radio" name="question2"> Zurich</label><br>
+                <label><input type="radio" name="question2"> Munchin</label><br>
+                <img src="https://cdn.britannica.com/43/4543-004-C0D5C6F4/Flag-Switzerland.jpg" alt="Question Image">
+            </fieldset> 
+            <fieldset>
+                <legend>Question 3</legend>
+                What is the capital of Turkey?<br>
+                <label><input type="radio" name="question3"> Istanbul</label><br>
+                <label><input type="radio" name="question3"> Ezmir</label><br>
+                <label><input type="radio" name="question3" id="correct3"> Ankara</label><br>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1200px-Flag_of_Turkey.svg.png" alt="Question Image">
+            </fieldset>
+            <fieldset>
+                <legend>Question 4</legend>
+                What is the capital of Ghana?<br>
+                <label><input type="radio" name="question4"> Fiji</label><br>
+                <label><input type="radio" name="question4" id="correct4"> Accra</label><br>
+                <label><input type="radio" name="question4"> Lagos</label><br>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Ghana.svg/255px-Flag_of_Ghana.svg.png" alt="Question Image">
+            </fieldset>
+            <fieldset>
+                <legend>Question 5</legend>
+                What is the capital of Canada?<br>
+                <label><input type="radio" name="question5"> Toronto</label><br>
+                <label><input type="radio" name="question5" id="correct5"> Ottawa</label><br>
+                <label><input type="radio" name="question5"> Montreal</label><br>
+                <img src="https://www.worldatlas.com/img/flag/ca-flag.jpg" alt="Question Image">
+            </fieldset>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+        
+        <div id="result"></div>
+        
+        <script>
+            const form = document.querySelector("form");
+            const result = document.querySelector("#result");
+            
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+                
+                let correctAnswers = 0;
+                
+                if (document.querySelector("#correct1").checked) {
+                    correctAnswers++;
+                }
+                if (document.querySelector("#correct2").checked) {
+                    correctAnswers++;
+                }
+                if (document.querySelector("#correct3").checked) {
+                    correctAnswers++;
+                }
+                if (document.querySelector("#correct4").checked) {
+                    correctAnswers++;
+                }
+                if (document.querySelector("#correct5").checked) {
+                    correctAnswers++;
+                }
+                
+                result.textContent = "You got " + correctAnswers + " out of 5 questions correct!";
+            });
+        </script>
+    </body>
+</html>    
